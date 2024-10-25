@@ -17,17 +17,17 @@ export default function Component() {
 
   const slides = [
     {
-      image: "src/assets/ImageCorosuel1.png",
+      image: "/ImageCorosuel1.png",
       title: "Stable passive returns",
       description: "Enjoy consistent income from your solar investments."
     },
     {
-      image: "src/assets/ImageCorosuel2.png",
+      image: "/ImageCorosuel2.png",
       title: "Sustainable energy generation",
       description: "Our projects generate clean solar energy from rooftop installations of solar panels, reducing carbon footprint."
     },
     {
-      image: "src/assets/ImageCorosuel3.png",
+      image: "/ImageCorosuel3.png",
       title: "Stable, asset-backed investments",
       description: "Invest in tangible solar assets for long-term stability and growth."
     }
