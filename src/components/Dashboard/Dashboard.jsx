@@ -20,13 +20,13 @@ const Dashboard = () => {
         <h1 className="text-3xl font-bold mb-6 text-white">Dashboard</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
-            <div className="bg-black rounded-lg shadow-md p-6">
+            <div className="bg-black rounded-lg shadow-md p-6 border-2 border-white">
               <h2 className="font-semibold mb-4 text-white text-2xl">Investment Summary</h2>
               <InvestmentSummary />
             </div>
           </div>
           <div className="lg:col-span-1">
-            <div className="bg-black rounded-lg shadow-md p-6 mb-6">
+            <div className="bg-black border-2 border-white rounded-lg shadow-md p-6 mb-6">
               <h2 className="text-2xl text-white font-semibold mb-4">Environmental Impact</h2>
               <EnvironmentalImpact />
             </div>
