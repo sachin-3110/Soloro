@@ -3,18 +3,6 @@ import InvestmentSummary from './InvestmentSummary';
 import EnvironmentalImpact from './EnvironmentalImpact';
 
 
-const generateSyntheticData = (numPoints) => {
-  const data = [];
-  let price = 100; // Starting price
-  for (let i = 0; i < numPoints; i++) {
-    // Simulate gradual increase with random fluctuations
-    const fluctuation = (Math.random() - 0.5) * 10; // Random fluctuation between -5 and +5
-    price += 1 + fluctuation; // Gradual increase
-    data.push({ date: `Day ${i + 1}`, price: price.toFixed(2) });
-  }
-  return data;
-};
-
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
   const [syntheticData, setSyntheticData] = useState([]);
