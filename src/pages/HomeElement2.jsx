@@ -12,7 +12,7 @@ export default function Component() {
               <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L1 21h22L12 2zm0 3.516L20.297 19H3.703L12 5.516z"/>
               </svg>
-              <span className="uppercase font-semibold">Soloro</span>
+              <span className="uppercase font-semibold">SunShare</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6 leading-tight">
              Join The Solar movement-invest, save, impact.            </h1>
