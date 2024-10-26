@@ -21,7 +21,7 @@ export default function Component() {
               {[
                 'Buy solar panels in rooftop projects',
                 'Earn 10-13% returns from electricity your panels generate',
-                'Vested takes care of the installation and maintenance of your panels'
+                'SunShare takes care of the installation and maintenance of your panels'
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
                   <CheckIcon className="h-6 w-6 text-green-500 mr-2 flex-shrink-0" />
