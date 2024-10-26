@@ -9,28 +9,35 @@ const Home = () => {
             name: "SunValley Solar Farm",
             location: "Arizona, USA",
             capacity: "50 MW",
-            roi: "8-10% annually"
+            roi: "8-10% annually",
+            link:'/trading',
+            
         },
         {
             id: 2,
             name: "Coastal Wind Project",
             location: "California, USA",
             capacity: "30 MW",
-            roi: "7-9% annually"
+            roi: "7-9% annually",
+            link:'/trading',
+            
         },
         {
             id: 3,
             name: "Desert Sun Initiative",
             location: "Nevada, USA",
             capacity: "40 MW",
-            roi: "9-11% annually"
+            roi: "9-11% annually",
+            link:'/trading',
+            
         },
         {
             id: 4,
             name: "Mountain Peak Solar",
             location: "Colorado, USA",
             capacity: "25 MW",
-            roi: "7-8% annually"
+            roi: "7-8% annually",
+            link:'/trading',
         }
     ]);
 
@@ -56,7 +63,7 @@ const Home = () => {
                             <br />
                             <strong>Expected ROI:</strong> {project.roi}
                         </p>
-                        <Link to='/trading' className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        <Link to={project.link} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
                             Invest Now
                         </Link>
                     </div>
