@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InvestmentSummary from './InvestmentSummary';
 import EnvironmentalImpact from './EnvironmentalImpact';
-import { Line } from 'react-chartjs-2';
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+
 
 const generateSyntheticData = (numPoints) => {
   const data = [];
@@ -28,15 +26,6 @@ const Dashboard = () => {
       setTransactions(JSON.parse(savedTransactions));
     }
 
-    // Generate synthetic data for solar share prices
-    const data = generateSyntheticData(30); // Generate data for 30 days
-    setSyntheticData(data);
-  }, []);
-
-  // Prepare data for the graph
-  const getDataForGraph = () => {
-    const labels = syntheticData.map(data => data.date);
-    const prices = syntheticData.map(data => data.price);
 
     return {
       labels,
@@ -64,8 +53,6 @@ const Dashboard = () => {
               <h2 className="font-semibold mb-4 text-white text-2xl">Investment Summary</h2>
               <InvestmentSummary />
               <div className="bg-white mt-4 rounded-lg shadow-md p-6 mb-6">
-              <h2 className="text-xl font-semibold mb-4 text-black">Investment Graph</h2>
-              <Line data={data} /> {/* Add the graph here */}
             </div>
             </div>
           </div>
