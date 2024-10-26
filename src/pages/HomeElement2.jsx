@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Component() {
   return (
@@ -28,9 +29,9 @@ export default function Component() {
                 </li>
               ))}
             </ul>
-            <button className="mt-8 bg-blue-700 text-white px-6 py-3 rounded-md hover:bg-blue-800 duration:500 transition duration-300">
+            <Link to='/trading' className="mt-8 bg-blue-700 text-white px-6 py-3 rounded-md hover:bg-blue-800 duration:500 transition duration-300">
               Start Investing
-            </button>
+            </Link>
           </div>
           <div className="md:w-1/2 w-1/2 h-full flex justify-center items-center">
             <img
