@@ -12,24 +12,7 @@ const Dashboard = () => {
     const savedTransactions = localStorage.getItem('transactions');
     if (savedTransactions) {
       setTransactions(JSON.parse(savedTransactions));
-    }
-
-
-    return {
-      labels,
-      datasets: [
-        {
-          label: 'Solar Share Price Over Time',
-          data: prices,
-          fill: false,
-          backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(75,192,192,1)',
-        },
-      ],
-    };
-  };
-
-  const data = getDataForGraph(); // Get data for the graph
+    },[]}
 
   return (
     <div className="bg-gray-100 min-h-screen text-black">
