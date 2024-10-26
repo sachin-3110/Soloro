@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import InvestmentSummary from './InvestmentSummary';
 import EnvironmentalImpact from './EnvironmentalImpact';
+import { Line } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
+const generateSyntheticData = (numPoints) => {
+  const data = [];
+  let price = 100; // Starting price
+  for (let i = 0; i < numPoints; i++) {
+    // Simulate gradual increase with random fluctuations
+    const fluctuation = (Math.random() - 0.5) * 10; // Random fluctuation between -5 and +5
+    price += 1 + fluctuation; // Gradual increase
+    data.push({ date: `Day ${i + 1}`, price: price.toFixed(2) });
+  }
+  return data;
+};
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
+  const [syntheticData, setSyntheticData] = useState([]);
 
   useEffect(() => {
     // Load transactions from localStorage
@@ -12,25 +27,54 @@ const Dashboard = () => {
     if (savedTransactions) {
       setTransactions(JSON.parse(savedTransactions));
     }
+
+    // Generate synthetic data for solar share prices
+    const data = generateSyntheticData(30); // Generate data for 30 days
+    setSyntheticData(data);
   }, []);
 
+  // Prepare data for the graph
+  const getDataForGraph = () => {
+    const labels = syntheticData.map(data => data.date);
+    const prices = syntheticData.map(data => data.price);
+
+    return {
+      labels,
+      datasets: [
+        {
+          label: 'Solar Share Price Over Time',
+          data: prices,
+          fill: false,
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: 'rgba(75,192,192,1)',
+        },
+      ],
+    };
+  };
+
+  const data = getDataForGraph(); // Get data for the graph
+
   return (
-    <div className="bg-black min-h-screen text-black">
+    <div className="bg-gray-100 min-h-screen text-black">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6 text-white">Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-6 text-gray-800">Dashboard</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
-            <div className="bg-black rounded-lg shadow-md p-6 border-2 border-white">
+            <div className="bg-black rounded-lg shadow-md p-6">
               <h2 className="font-semibold mb-4 text-white text-2xl">Investment Summary</h2>
               <InvestmentSummary />
+              <div className="bg-white mt-4 rounded-lg shadow-md p-6 mb-6">
+              <h2 className="text-xl font-semibold mb-4 text-black">Investment Graph</h2>
+              <Line data={data} /> {/* Add the graph here */}
+            </div>
             </div>
           </div>
           <div className="lg:col-span-1">
-            <div className="bg-black border-2 border-white rounded-lg shadow-md p-6 mb-6">
+            <div className="bg-black rounded-lg shadow-md p-6 mb-6">
               <h2 className="text-2xl text-white font-semibold mb-4">Environmental Impact</h2>
               <EnvironmentalImpact />
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
               <h2 className="text-xl font-semibold mb-4 text-black">Recent Transactions</h2>
               <div className="overflow-auto">
                 <table className="w-full">
@@ -59,6 +103,7 @@ const Dashboard = () => {
                 </table>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
