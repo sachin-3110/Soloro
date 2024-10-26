@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="flex space-x-7">
             <div>
               <Link href="/" className="flex items-center py-4 px-2">
-                <span className="font-semibold text-gray-500 text-lg">Logo</span>
+                <span className="font-semibold text-gray-500 text-lg">SunShare</span>
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-1">
