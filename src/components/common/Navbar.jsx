@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-blue-300 font-semibold text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">Soloro</Link>
+        <Link to="/" className="text-2xl font-bold">SunShare</Link>
         
         {/* Hamburger menu for mobile */}
         <div className="md:hidden">
